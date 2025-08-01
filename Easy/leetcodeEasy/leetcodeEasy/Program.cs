@@ -1,12 +1,11 @@
-﻿using System.Text;
-
-namespace leetcodeEasy
+﻿namespace leetcodeEasy
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Solution solution = new Solution();
+
         }
     }
     //    public class Solution
@@ -109,32 +108,81 @@ namespace leetcodeEasy
 
 
 
-    public class Solution
-    {
-        public IList<IList<int>> Combine(int n, int k)
-        {
-            IList<IList<int>> result = new List<IList<int>>();
-            int position = 0;
-            int[] current = new int[k];
-            while (0 <= position)
-            {
-                current[position]++;
-                if (n < current[position])
-                {
-                    position--;
-                }
-                else if (position == k - 1)
-                {
-                    result.Add(current.ToArray());
-                }
-                else
-                {
-                    current[++position] = current[position - 1];
-                }
-            }
-            return result;
-        }
-    }
+    //public class Solution
+    //{
+    //    public IList<IList<int>> Combine(int n, int k)
+    //    {
+    //        IList<IList<int>> result = new List<IList<int>>();
+    //        int position = 0;
+    //        int[] current = new int[k];
+    //        while (0 <= position)
+    //        {
+    //            current[position]++;
+    //            if (n < current[position])
+    //            {
+    //                position--;
+    //            }
+    //            else if (position == k - 1)
+    //            {
+    //                result.Add(current.ToArray());
+    //            }
+    //            else
+    //            {
+    //                current[++position] = current[position - 1];
+    //            }
+    //        }
+    //        return result;
+    //    }
+    //}
 
 
+    //public class TreeNode
+    //  {
+    //    public int val;
+    //    public TreeNode left;
+    //    public TreeNode right;
+    //  public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+    //      {
+    //          this.val = val;
+    //          this.left = left;
+    //          this.right = right;
+    //             }
+    //}
+
+    //public class Solution
+    //{
+    //    public string LongestPalindrome(string s)
+    //    {
+    //        var result = string.Empty;
+    //        for (var i = s.Length; i > 0; i--)
+    //        {
+    //            for (var j = 0; j < s.Length - i; j++)
+    //            {
+    //                result = s.Substring(j, i);
+    //                if (IsPalindrome(result))
+    //                {
+    //                    return result;
+    //                }
+
+    //            }
+    //        }
+    //        return result;
+    //    }
+    //    private  bool IsPalindrome(string s)
+    //    {
+    //        var left = 0;
+    //        var right = s.Length - 1;
+
+    //        while (left < right)
+    //        {
+    //            if (s[left] != s[right])
+    //            {
+    //                return false;
+    //            }
+    //            left++;
+    //            right--;
+    //        }
+    //        return true;
+    //    }
+    //}
 }
