@@ -1,10 +1,26 @@
-﻿namespace leetcodeEasy
+﻿using System;
+
+namespace leetcodeEasy
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Solution solution = new Solution();
+            var hundredHandler = new HundredsHandler();
+            var fiftyHandler = new FiftyHandler();
+            var tenHandler = new TenHandler();
+            var fiveHandler = new FiveHandler();
+            var oneHandler = new OneHandler();
+           
+
+            hundredHandler.SetNext(fiftyHandler);
+            fiftyHandler.SetNext(tenHandler);
+            tenHandler.SetNext(fiveHandler);
+            fiveHandler.SetNext(oneHandler);
+       
+
+            var result = hundredHandler.Handle(7521);
+            //Console.WriteLine(result); 
 
         }
     }
@@ -185,4 +201,70 @@
     //        return true;
     //    }
     //}
+    //public class Solution
+    //{
+    //    public bool IsNumber(string s)
+    //    {
+    //        s = s.Trim();
+    //        bool hasNum = false, hasE = false, hasDot = false;
+
+    //        for (int i = 0; i < s.Length; i++)
+    //        {
+    //            char c = s[i];
+
+    //            if (char.IsDigit(c))
+    //            {
+    //                hasNum = true;
+    //            }
+    //            else if (c == '.')
+    //            {
+    //                if (hasDot || hasE) return false; // Only one dot, no dot after e
+    //                hasDot = true;
+    //            }
+    //            else if (c == 'e' || c == 'E')
+    //            {
+    //                if (hasE || !hasNum) return false; // Only one e, must have number before e
+    //                hasE = true;
+    //                hasNum = false; // Reset for number after e
+    //            }
+    //            else if (c == '+' || c == '-')
+    //            {
+    //                if (i != 0 && s[i - 1] != 'e' && s[i - 1] != 'E') return false; // Only at start or after e
+    //            }
+    //            else
+    //            {
+    //                return false; // Invalid character
+    //            }
+    //        }
+
+    //        return hasNum;
+    //    }
+    //}
+    public class Solution
+    {
+        public bool IsPowerOfTwo(int n)
+        {
+
+            if (n <= 0) return false;
+            var i = 1;
+            while (true)
+            {
+                if (n % 2 == 0)
+                {
+                    n /= 2;
+                }
+                else
+                {
+                    if(n == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
 }
