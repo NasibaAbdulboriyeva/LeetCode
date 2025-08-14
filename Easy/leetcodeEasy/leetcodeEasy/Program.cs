@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 
 namespace leetcodeEasy
 {
@@ -6,20 +7,22 @@ namespace leetcodeEasy
     {
         static void Main(string[] args)
         {
-            var hundredHandler = new HundredsHandler();
-            var fiftyHandler = new FiftyHandler();
-            var tenHandler = new TenHandler();
-            var fiveHandler = new FiveHandler();
-            var oneHandler = new OneHandler();
-           
+            //    var hundredHandler = new HundredsHandler();
+            //    var fiftyHandler = new FiftyHandler();
+            //    var tenHandler = new TenHandler();
+            //    var fiveHandler = new FiveHandler();
+            //    var oneHandler = new OneHandler();
 
-            hundredHandler.SetNext(fiftyHandler);
-            fiftyHandler.SetNext(tenHandler);
-            tenHandler.SetNext(fiveHandler);
-            fiveHandler.SetNext(oneHandler);
-       
 
-            var result = hundredHandler.Handle(7521);
+            //    hundredHandler.SetNext(fiftyHandler);
+            //    fiftyHandler.SetNext(tenHandler);
+            //    tenHandler.SetNext(fiveHandler);
+            //    fiveHandler.SetNext(oneHandler);
+
+
+            //    var result = hundredHandler.Handle(7521);
+            //var solution = new Solution();
+            //solution.Generate(5);
             //Console.WriteLine(result); 
 
         }
@@ -240,31 +243,133 @@ namespace leetcodeEasy
     //        return hasNum;
     //    }
     //}
+    //public class Solution
+    //{
+    //    public bool IsPowerOfTwo(int n)
+    //    {
+
+    //        if (n <= 0) return false;
+    //        var i = 1;
+    //        while (true)
+    //        {
+    //            if (n % 2 == 0)
+    //            {
+    //                n /= 2;
+    //            }
+    //            else
+    //            {
+    //                if(n == 1)
+    //                {
+    //                    return true;
+    //                }
+    //                else
+    //                {
+    //                    return false;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+    //public class Solution
+    //{
+    //    public bool ReorderedPowerOf2(int n)
+    //    {
+    //        int[] nums = new int[n.ToString().Length];
+    //        int i = 0;
+    //        while (true)
+    //        {
+    //            nums[i++] = n % 10;
+    //            n /= 10;
+    //            if (n == 0) break;
+    //        }
+
+    //        IList<IList<int>> current = PermuteUnique(nums);
+    //        i = 0;
+
+    //        foreach (var num in current)
+    //        {
+    //            string temp = "";
+    //            foreach (var numb in num)
+    //            {
+    //                temp += numb.ToString();
+    //            }
+    //            if (temp[0] == '0')
+    //            {
+    //                continue;
+    //            }
+    //            bool solu = IsPowerOfTwo(int.Parse(temp));
+    //            if (solu) return true;
+
+    //        }
+    //        return false;
+    //    }
+    //    public bool IsPowerOfTwo(int n)
+    //    {
+    //        if (n < 0) return false;
+    //        if (n % 2 != 0 && n != 1) return false;
+
+    //        while (n > 0)
+    //        {
+    //            if (n == 1) return true;
+    //            if (n % 2 != 0) return false;
+    //            n /= 2;
+    //        }
+    //        return false;
+    //    }
+    //    public IList<IList<int>> PermuteUnique(int[] nums)
+    //    {
+    //        Array.Sort(nums);
+    //        IList<IList<int>> result = new List<IList<int>>();
+
+    //        for (int i = 0; i < nums.Length; i++)
+    //        {
+    //            if (i > 0 && nums[i] == nums[i - 1]) continue; // Skip duplicates
+    //            List<int> current = new List<int>();
+    //            current.Add(nums[i]);
+    //            bool[] used = new bool[nums.Length];
+    //            used[i] = true;
+    //            Backtrack(nums, used, current, result);
+    //        }
+
+    //        return result;
+    //    }
+
+    //    public void Backtrack(int[] nums, bool[] used, List<int> current, IList<IList<int>> result)
+    //    {
+    //        if (current.Count == nums.Length)
+    //        {
+    //            result.Add(new List<int>(current));
+    //            return;
+    //        }
+    //        for (int i = 0; i < nums.Length; i++)
+    //        {
+    //            if (used[i]) continue; // Skip used numbers
+    //            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue; // Skip duplicates
+    //            used[i] = true;
+    //            current.Add(nums[i]);
+    //            Backtrack(nums, used, current, result);
+    //            used[i] = false;
+    //            current.RemoveAt(current.Count - 1);
+    //        }
+    //    }
+    //}
+
     public class Solution
     {
-        public bool IsPowerOfTwo(int n)
+        public string LargestGoodInteger(string num)
         {
-
-            if (n <= 0) return false;
-            var i = 1;
-            while (true)
-            {
-                if (n % 2 == 0)
-                {
-                    n /= 2;
-                }
-                else
-                {
-                    if(n == 1)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
+            
+            if (num.Contains("999")) return "999";
+            if (num.Contains("888")) return "888";
+            if (num.Contains("777")) return "777";
+            if (num.Contains("666")) return "666";
+            if (num.Contains("555")) return "555";
+            if (num.Contains("444")) return "444";
+            if (num.Contains("333")) return "333";
+            if (num.Contains("222")) return "222";
+            if (num.Contains("111")) return "111";
+            if (num.Contains("000")) return "000";
+            else return "";
         }
     }
 }
